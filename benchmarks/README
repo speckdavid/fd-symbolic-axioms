@@ -1,0 +1,155 @@
+
+Axiom-aware heuristics for the Fast Downward planner
+====================================================
+
+Source code and benchmark problems for the experiments described
+in the paper "Optimal Planning with Axioms" (Franc Ivankovic and
+Patrik Haslum, IJCAI 2015).
+
+Licence terms: The source code and our domain/problem formulations
+are released under the Creative Commons Attribution-ShareAlike 4.0
+International License (CC BY-SA 4.0). For the full licence tems, see
+http://creativecommons.org/licenses/by-sa/4.0/legalcode. A brief
+explanation of the licence terms can be found at
+http://creativecommons.org/licenses/by-sa/4.0/.
+
+Please note that this package also includes two problem sets that
+are not our creation: the problems by Ghosh, Dasgupta and Ramesh
+and the problems by Kominis and Geffner. These are not covered by
+the above licence.
+
+
+Installation
+============
+
+The heuristics are implemented in the Fast Downward planner code
+base. Our add-on is provided as a patch, to be applied to revision
+4804 (the one we branched off from) in the FD main repository.
+
+Our code uses the clasp ASP solver library. It was developed with
+clasp version 2.1.3. It has not been tested for compatibility with
+other versions.
+
+1. Download, configure and build the clasp library. It is available
+from http://sourceforge.net/projects/potassco/files/clasp/2.1.3/.
+When configuring clasp, you must enable static linking.
+
+2. Clone the Fast Downward main repository. For instructions, see
+http://www.fast-downward.org/.
+
+3. In the FD directory, update to revision 4804 (4d52652adfee) and
+apply the patch. This can be done with:
+
+    hg update -r 4804
+    hg import fd-axiom-aware.patch -u test
+
+4. In the FD directory, edit src/search/Makefile to set the
+LIBCLASP_HOME and LIBCLASP_LIB variables to point at the place
+where you installed the clasp library. LIBCLASP_HOME should point
+to the library root directory (one level above where the header
+files are). LIBCLASP_LIB should point to where the static library
+is.
+
+5. Build the FD preprocessor and search engine (run make in
+src/preprocess and src/search).
+
+To test the build, go to benchmarks/misc-axiom-tests and run
+
+    ../../src/fast-downward.py blocker-strips.pddl bm3.pddl --search 'astar(hmax_with_axioms(tvr=false))'
+
+
+Notes and options
+=================
+
+In addition to the axiom-aware heuristics, the patched FD planner has
+a few modifications that may make it incompatible with the standard FD
+planner; although its standard search engines, heuristics etc are
+carried over, they may not work.
+
+The main modifications are the following:
+
+* The translator does not create "complementary" axioms for negated
+  derived propositions. (We disabled this to avoid the combinatorial
+  blow-up it causes on some problems).
+
+* The preprocessor does not output DTGs or the causal graph, and the
+  search engine does not expect to find them in the preprocessor's
+  output file. (Again, this was done to avoid problems with very large
+  files in a few cases.) This means that some heuristics or landmark
+  generators that depend on this info being available from the
+  preprocessor's output file (if there are any such) may not work.
+
+* The h^max implementation is changed so that it is sound on problems
+  with axioms. (The previous implementation did initialise derived
+  propositions to their default value.) It now (correctly) implements
+  what we called the "naive relaxation".
+
+The configurations used for experiments in the paper are:
+
+# "naive" h^max:
+ --search 'astar(hmax())'
+
+# axiom-aware h^max, using full ASP consistency checking:
+ --search 'astar(hmax_with_axioms(tvr=false))
+
+# axiom-aware h^max, using the 3-valued relaxation:
+ --search 'astar(hmax_with_axioms(tvr=true))
+
+# canonical PDB heuristic, using axiom-aware PDBs; the default pattern
+# selection is simply one PDB per primary (non-derived) state variable
+# that has a goal value:
+ --search 'astar(cpdbs(with_axioms=true))'
+
+# canonical PDB heuristic, with specified patterns:
+ --search 'astar(cpdbs(with_axioms=true, patterns=[...]))'
+
+(A single axiom-aware PDB heuristic can be constructed with the option
+'pdb_with_axioms(pattern=[...vars...])'.)
+
+# standard blind search
+ --search 'astar(blind())'
+
+
+The following sets of planning problems have been added to the benchmarks
+directory:
+
+sokoban-axioms:
+Our formulation of the Sokoban domain using axioms. There are two
+encodings: one uses only classical (STRIPS) PDDL and axioms, the
+other uses "Functional STRIPS" (i.e., object-valued fluents, a la
+PDDL 3.1). More on this below.
+
+ghosh-etal-JAR:
+The controller verification problems by Ghosh, Dasgupta and Ramesh
+("Automated Planning as an Early Verification Tool for Distributed
+Control", Journal of Automated Reasoning vol. 54, 2015), sourced from
+http://www.facweb.iitkgp.ernet.in/~pallab/PAPLAN.tar.gz, and the
+equivalent compiled problems: "cc1" is the compilation into STRIPS
+originally proposed by Ghosh et al.; "cc2" is the compilation into
+STRIPS planning with axioms.
+
+mincut:
+The mincut domain from our paper. Only a nandful of small-size
+instances are provided, but there is also random instance generator.
+
+kominis-geffner:
+Problems by Filippos Kominis and Hector Geffner, from their paper
+"Beliefs in Multiagent Planning: From One Agent to Many" (ICAPS 2015).
+These are cooperative multi-agent planning with partial observability
+and nested beliefs, compiled into planning with axioms. They were
+provided to us by Filippos Kominis.
+
+psr-middle-noce:
+The PSR middle-sized problem set from IPC 2004, formulation with
+axioms but without conditional effects.
+
+misc-axioms-tests:
+Various other test cases, including the "Trapping game" (domain file:
+blocker-strips.pddl) and our formulation of Chang & Soo's "Iago's
+problem".
+
+Some of the domains/problems are formulated in "Functional STRIPS"
+(PDDL 3.1), which is not handled by the Fast Downward translator. For
+these domains, we used a replacement translator component ("nyat"),
+which is part of the INVAL code. It can be obtained from
+http://users.rsise.anu.edu.au/~patrik/.
