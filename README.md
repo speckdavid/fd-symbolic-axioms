@@ -1,3 +1,8 @@
+Symbolic Version of FD with axiom support:
+ - Symbolic FD: https://fai.cs.uni-saarland.de/torralba/software.html
+ - Symbolic Axiom support: David Speck, Florian Geißer, Robert Mattmüller, Álvaro Torralba. Symbolic Planning with Axioms (preprint)
+
+
 Fast Downward is a domain-independent planning system.
 
 For documentation and contact information see http://www.fast-downward.org/.
