@@ -4,13 +4,13 @@
 
 ## Configurations
 
-We recommand to use the symbolic compilation with bidirectional search which lead to the best results in our evaluation.
+We recommend to use the symbolic compilation with bidirectional search.
 
 ```console
 $ ./fast-downward.py domain.pddl problem.pddl --search "sbd()"
 ```
 
-Other configurations are callable as follows.
+Other configurations are as follows.
 
 ### Symbolic Compilation
 
