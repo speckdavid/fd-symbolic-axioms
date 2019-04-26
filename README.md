@@ -1,7 +1,44 @@
-Symbolic Version of FD with axiom support:
- - Symbolic FD: https://fai.cs.uni-saarland.de/torralba/software.html
+# Symbolic Version of Fast Downward with axiom support:
  - Symbolic Axiom support: David Speck, Florian Geißer, Robert Mattmüller, Álvaro Torralba. Symbolic Planning with Axioms (preprint)
+ - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
 
+## Configurations
+
+We recommend to use the symbolic compilation with bidirectional search.
+
+```console
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbd()"
+```
+
+Other configurations are as follows.
+
+### Symbolic Compilation
+
+```console
+# Bidirectional Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbd()"
+
+# Forward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sfw()"
+
+#Backward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbw()"
+```
+
+### Action-Based Encoding
+```console
+# Forward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sfw(axiom_type=interleaved_rules)"
+```
+
+### Variable-Based Encoding
+```console
+# Forward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sfw(axiom_type=varbdds)"
+```
+
+
+# Fast Downward
 
 Fast Downward is a domain-independent planning system.
 
