@@ -28,7 +28,7 @@ $ ./fast-downward.py domain.pddl problem.pddl --search "sbw()"
 ### Action-Based Encoding
 ```console
 # Forward Search
-$ ./fast-downward.py domain.pddl problem.pddl --search "sfw(axiom_type=interleaved_rules())"
+$ ./fast-downward.py domain.pddl problem.pddl --search "sfw(axiom_type=interleaved_rules)"
 ```
 
 ### Variable-Based Encoding
