@@ -1,6 +1,32 @@
 # Symbolic Version of Fast Downward with axiom support:
- - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
  - Symbolic Axiom support: David Speck, Florian Geißer, Robert Mattmüller, Álvaro Torralba. Symbolic Planning with Axioms (preprint)
+ - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
+
+## Configurations
+
+We recommand to use the symbolic compilation with bidirectional search which lead to the best results in our evaluation.
+
+```console
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbd()"
+```
+
+Other configurations are callable as follows.
+
+# Symbolic Compilation
+
+```console
+# Bidirectional Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbd()"
+
+# Forward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sfw()"
+
+#Backward Search
+$ ./fast-downward.py domain.pddl problem.pddl --search "sbw()"
+```
+
+
+ 
 
 
 # Fast Downward
