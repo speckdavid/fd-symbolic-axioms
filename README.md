@@ -2,7 +2,20 @@
  - Symbolic Axiom support: David Speck, Florian Geißer, Robert Mattmüller, Álvaro Torralba. Symbolic Planning with Axioms ([pdf](https://gkigit.informatik.uni-freiburg.de/dspeck/fd-symbolic-axioms/blob/master/paper.pdf))
  - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
 
-## Configurations
+## Dependencies
+
+Currently we only support Linux systems. The following should install all necessary dependencies.
+```console
+$ sudo apt-get -y install cmake g++ make python autotools-dev automake gcc g++-multilib
+```
+ 
+## Compiling the Planner
+
+```console
+$ ./buildy.py 
+```
+
+## Runing the Planner
 
 We recommend to use the symbolic compilation with bidirectional search.
 
