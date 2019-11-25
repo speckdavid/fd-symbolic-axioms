@@ -1,5 +1,5 @@
-# Symbolic Version of Fast Downward with axiom support:
- - Symbolic Axiom support: David Speck, Florian Geißer, Robert Mattmüller, Álvaro Torralba. Symbolic Planning with Axioms ([pdf](https://gkigit.informatik.uni-freiburg.de/dspeck/fd-symbolic-axioms/blob/master/paper.pdf))
+# Symbolic Version of Fast Downward with Axiom Support:
+ - Speck, D.; Geißer, F.; Mattmüller, R.; and Torralba, Á. 2019. Symbolic planning with axioms. In Lipovetzky, N.; Onaindia, E.; and Smith, D. E., eds., Proceedings of the Twenty-Ninth International Conference on Automated Planning and Scheduling (ICAPS 2019), 464–572. AAAI Press. ([pdf](https://gkigit.informatik.uni-freiburg.de/dspeck/fd-symbolic-axioms/blob/master/paper.pdf))
  - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
 
 ## Dependencies
