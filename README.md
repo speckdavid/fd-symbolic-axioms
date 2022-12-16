@@ -11,7 +11,7 @@ This repository is no longer maintained, but we have updated it so that the plan
 
 - Recommended repository for symbolic search with axiom support: [SymK Planner](https://github.com/speckdavid/symk) 
 - Original version we ran the experiments with: [Tag ICAPS2019](https://github.com/speckdavid/fd-symbolic-axioms/tree/icaps-2019)
-- Benchmarks we used for the original experiments: [Benchmarks](https://github.com/speckdavid/fd-symbolic-axioms/tree/icaps-2019/benchmarks)
+- Benchmarks we used for the original experiments: [Benchmarks](https://github.com/speckdavid/fd-symbolic-axioms/tree/master/benchmarks)
 
 
 ## Dependencies
