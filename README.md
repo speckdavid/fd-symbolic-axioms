@@ -1,8 +1,12 @@
-# Symbolic Version of Fast Downward with Axiom Support:
+# Symbolic Version of Fast Downward with Axiom Support
 Axioms are an extension for classical planning models that allow for modeling complex preconditions and goals exponentially more compactly. Although axioms were introduced in planning more than a decade ago, modern planning techniques rarely support axioms, especially in cost-optimal planning. Symbolic search is a popular and competitive optimal planning technique based on the manipulation of sets of states. In this work, we extend symbolic search algorithms to support axioms natively. We analyze different ways of encoding derived variables and axiom rules to evaluate them in a symbolic representation. We prove that all encodings are sound and complete, and empirically show that the presented approach outperforms the previous state of the art in cost-optimal classical planning with axioms.
 
- - Speck, D.; Geißer, F.; Mattmüller, R.; and Torralba, Á. 2019. Symbolic planning with axioms. In Lipovetzky, N.; Onaindia, E.; and Smith, D. E., eds., Proceedings of the Twenty-Ninth International Conference on Automated Planning and Scheduling (ICAPS 2019), 464–572. AAAI Press. ([pdf](https://gkigit.informatik.uni-freiburg.de/dspeck/fd-symbolic-axioms/blob/master/paper.pdf))
+ - Speck, D.; Geißer, F.; Mattmüller, R.; and Torralba, Á. 2019. Symbolic planning with axioms. In Lipovetzky, N.; Onaindia, E.; and Smith, D. E., eds., Proceedings of the Twenty-Ninth International Conference on Automated Planning and Scheduling (ICAPS 2019), 464–572. AAAI Press. ([pdf](https://github.com/speckdavid/fd-symbolic-axioms/blob/master/paper.pdf))
  - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
+ - Fast Downward: https://www.fast-downward.org/
+
+##
+
 
 ## Dependencies
 

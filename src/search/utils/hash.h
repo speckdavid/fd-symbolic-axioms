@@ -5,6 +5,8 @@
 #include <utility>
 #include <vector>
 
+using std::size_t;
+
 namespace utils {
 /*
   Hash a new value and combine it with an existing hash.
