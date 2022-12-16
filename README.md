@@ -5,7 +5,13 @@ Axioms are an extension for classical planning models that allow for modeling co
  - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
  - Fast Downward: https://www.fast-downward.org/
 
-##
+##  Recommendations and Hints
+
+This repository is no longer maintained, but we have updated it so that the planner should build on modern hardware. You can find a maintained, improved, and up-to-date version of this work as part of the Symk planner. Note, however, that we have only migrated symbolic compilation to Symk and the other approaches are only available here. 
+
+- Recommended repository for symbolic search with axiom support: [SymK Planner](https://github.com/speckdavid/symk) 
+- Original version we ran the experiments with: [Tag ICAPS2019](https://github.com/speckdavid/fd-symbolic-axioms/tree/icaps-2019)
+- Benchmarks we used for the original experiments: [Benchmarks](https://github.com/speckdavid/fd-symbolic-axioms/tree/icaps-2019/benchmarks)
 
 
 ## Dependencies
