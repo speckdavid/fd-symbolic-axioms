@@ -1,18 +1,20 @@
-# Symbolic Version of Fast Downward with Axiom Support
-Axioms are an extension for classical planning models that allow for modeling complex preconditions and goals exponentially more compactly. Although axioms were introduced in planning more than a decade ago, modern planning techniques rarely support axioms, especially in cost-optimal planning. Symbolic search is a popular and competitive optimal planning technique based on the manipulation of sets of states. In this work, we extend symbolic search algorithms to support axioms natively. We analyze different ways of encoding derived variables and axiom rules to evaluate them in a symbolic representation. We prove that all encodings are sound and complete, and empirically show that the presented approach outperforms the previous state of the art in cost-optimal classical planning with axioms.
+# Symbolic Search for Optimal Planning with Axioms
 
- - Speck, D.; Geißer, F.; Mattmüller, R.; and Torralba, Á. 2019. Symbolic planning with axioms. In Lipovetzky, N.; Onaindia, E.; and Smith, D. E., eds., Proceedings of the Twenty-Ninth International Conference on Automated Planning and Scheduling (ICAPS 2019), 464–572. AAAI Press. ([pdf](https://github.com/speckdavid/fd-symbolic-axioms/blob/master/paper.pdf))
- - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
- - Fast Downward: https://www.fast-downward.org/
+This planner is a state-of-the-art classical optimal planner which supports derived predicates with axioms. 
+It is based on symbolic search and extends [Fast Downward](https://www.fast-downward.org) as follows.
 
-##  Recommendations and Hints
-
-This repository is no longer maintained, but we have updated it so that the planner should build on modern hardware. You can find a maintained, improved, and up-to-date version of this work as part of the Symk planner. Note, however, that we have only migrated symbolic compilation to Symk and the other approaches are only available here. 
+*Note*: This repository is no longer maintained, but we have updated it so that the planner should build on modern hardware. You can find a maintained, improved, and up-to-date version of this work as part of the [SymK planner](https://github.com/speckdavid/symk). Note, however, that we have only migrated symbolic compilation to SymK and the other approaches are only available here. 
 
 - Recommended repository for symbolic search with axiom support: [SymK Planner](https://github.com/speckdavid/symk) 
 - Original version we ran the experiments with: [Tag ICAPS2019](https://github.com/speckdavid/fd-symbolic-axioms/tree/icaps-2019)
 - Benchmarks we used for the original experiments: [Benchmarks](https://github.com/speckdavid/fd-symbolic-axioms/tree/master/benchmarks)
 
+## Description and Reference
+Axioms are an extension for classical planning models that allow for modeling complex preconditions and goals exponentially more compactly. Although axioms were introduced in planning more than a decade ago, modern planning techniques rarely support axioms, especially in cost-optimal planning. Symbolic search is a popular and competitive optimal planning technique based on the manipulation of sets of states. In this work, we extend symbolic search algorithms to support axioms natively. We analyze different ways of encoding derived variables and axiom rules to evaluate them in a symbolic representation. We prove that all encodings are sound and complete, and empirically show that the presented approach outperforms the previous state of the art in cost-optimal classical planning with axioms.
+
+ - Speck, D.; Geißer, F.; Mattmüller, R.; and Torralba, Á. 2019. Symbolic planning with axioms. In Lipovetzky, N.; Onaindia, E.; and Smith, D. E., eds., Proceedings of the Twenty-Ninth International Conference on Automated Planning and Scheduling (ICAPS 2019), 464–572. AAAI Press. ([pdf](https://github.com/speckdavid/fd-symbolic-axioms/blob/master/paper.pdf))
+ - Symbolic Fast Downward: https://fai.cs.uni-saarland.de/torralba/software.html
+ - Fast Downward: https://www.fast-downward.org/
 
 ## Dependencies
 
@@ -72,7 +74,8 @@ For documentation and contact information see http://www.fast-downward.org/.
 The following directories are not part of Fast Downward as covered by this
 license:
 
-* ./src/search/ext
+* [./src/search/ext](./src/search/ext)
+* [./src/search/cudd-3.0.0](./src/search/cudd-3.0.0/): see [BSD 3-Clause "New" or "Revised" License](./src/search/cudd-3.0.0/LICENSE)
 
 For the rest, the following license applies:
 
